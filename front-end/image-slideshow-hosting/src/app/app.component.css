@@ -1,3 +1,21 @@
+h1{
+  font-weight: bold;
+}
+
+label{
+  font-size: 17px;
+}
+
+.container{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.input-title{
+  width: 35%;
+  font-size: 20px;
+}
+
 .upload {
   background-color: #555555;
   border: none;
@@ -7,6 +25,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 15px;
 }
 
 .clear {
@@ -16,8 +35,8 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
+  border-radius: 15px;
 }
 
 .submit {
@@ -27,6 +46,17 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+
+.button-below{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-list{
+  margin-top: 20px;
+  text-align: center;
 }

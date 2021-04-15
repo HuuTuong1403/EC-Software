@@ -8,6 +8,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'
 
+import { MatInputModule } from '@angular/material/input'
 @NgModule({
   declarations: [
     AppComponent
@@ -18,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserAnimationsModule,
     NgImageSliderModule,
     HttpClientModule,
+    MatInputModule,
+    
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

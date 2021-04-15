@@ -1,12 +1,22 @@
-<div>
-  <ng-image-slider #nav></ng-image-slider>
+<div class="container">
+  <form>
+    <mat-form-field class="input-title">
+      <mat-label>Set Title Image</mat-label>
+      <input placeholder="Ex. Animals" matInput required #titleInput>
+    </mat-form-field>
+    <h1>
+      Choose Image
+    </h1>
+    <label for="ImageUpload">Upload your Image</label><br>
+    <input type="file" id="Image" name="Image" class="upload" (change)="onFileChange($event)" #fileInput>
+  </form>
 </div>
-<div style="text-align:center" >
-  <h1>
-    Choose Image
-  </h1>
-  <label for="ImageUpload">Upload your Image</label><br>
-  <input type="file" id="Image" name="Image"class="upload" (change)="onFileChange($event)" #fileInput>
-  <button type="submit" class="submit" (click)="onSubmit($event)">Submit <i class="fa fa-spinner fa-spin fa-fw"></i></button>
-  <button type="button" class="clear" (click)="clearFile()">Clear file</button>
+<div class="button-below">
+  <button type="submit" class="submit" (click)="onSubmit($event)">Submit<i class="fa fa-spinner fa-spin fa-fw"></i></button>
+  <button type="button" class="clear" (click)="clearFile()">Clear</button>
+</div>
+
+<div class="image-list">
+  <h1>Image List</h1>
+  <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
 </div>

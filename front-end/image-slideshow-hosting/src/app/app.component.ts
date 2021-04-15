@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AppService } from './app.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { AppService } from './app.service';
   providers: [AppService]
 })
 export class AppComponent{
+  imageObject: Array<object> = [];
   @ViewChild("fileInput") fileInput: ElementRef | any;
+  @ViewChild("titleInput") titleInput: ElementRef | any;
   Image!: File | Blob;
     constructor(
       private appService: AppService,
@@ -20,9 +22,10 @@ export class AppComponent{
 
     onSubmit(event:any){
       var image = new FormData();
-      image.append('Image', this.Image);
-      image.append('upload_preset','angular_cloudinary');
-      image.append('cloud_name', 'university-of-education-technology');
+      image.append('image', this.Image);
+      image.append('thumbImage', this.Image);
+      image.append('title', this.titleInput);
+      this.imageObject.push(image);
       this.appService.sendImage(image).subscribe((res: any)=>{
         console.log(res);
       });
