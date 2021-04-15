@@ -1,0 +1,12 @@
+<div>
+  <ng-image-slider #nav></ng-image-slider>
+</div>
+<div style="text-align:center" >
+  <h1>
+    Choose Image
+  </h1>
+  <label for="ImageUpload">Upload your Image</label><br>
+  <input type="file" id="Image" name="Image"class="upload" (change)="onFileChange($event)" #fileInput>
+  <button type="submit" class="submit" (click)="onSubmit($event)">Submit <i class="fa fa-spinner fa-spin fa-fw"></i></button>
+  <button type="button" class="clear" (click)="clearFile()">Clear file</button>
+</div>
