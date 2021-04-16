@@ -1,9 +1,11 @@
 const express = require("express");
+const multer  = require('multer')
 const app = express();
 const cloudinary = require("cloudinary").v2;
 const bodyParser = require('body-parser');
-
+const cors = require('cors')
 // body parser configuration
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,17 +29,11 @@ app.get("/", (request, response) => {
   response.json({ message: "Hey! This is your server response!" });
 });
 
+const storage = multer({dest:'public/'});
 // image upload API
-app.post("/image-upload", (request, response) => {
-    // collected image from a user
-    const data = {
-      image: request.body.image,
-    }
-
-    console.log(data);
-
+app.post("/image-upload",storage.single('image') ,(request, response) => {
     // upload image here
-    cloudinary.uploader.upload(data)
+    cloudinary.uploader.upload(request.file.path, {folder: 'single'})
     .then((result) => {
       response.status(200).send({
         message: "success",
