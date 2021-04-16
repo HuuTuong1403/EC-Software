@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form method="POST" action='http://localhost:3000/image-upload' enctype="multipart/form-data">
     <mat-form-field class="input-title">
       <mat-label>Set Title Image</mat-label>
       <input placeholder="Ex. Animals" matInput required #titleInput>
@@ -9,12 +9,11 @@
     </h1>
     <label for="ImageUpload">Upload your Image</label><br>
     <input type="file" id="Image" name="Image" class="upload" (change)="onFileChange($event)" #fileInput>
+    <button type="submit" class="submit" (click)="onSubmit($event)">Submit<i class="fa fa-spinner fa-spin fa-fw"></i></button>
+    <button type="button" class="clear" (click)="clearFile()">Clear</button>
   </form>
 </div>
-<div class="button-below">
-  <button type="submit" class="submit" (click)="onSubmit($event)">Submit<i class="fa fa-spinner fa-spin fa-fw"></i></button>
-  <button type="button" class="clear" (click)="clearFile()">Clear</button>
-</div>
+
 
 <div class="image-list">
   <h1>Image List</h1>

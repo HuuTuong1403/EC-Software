@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'image-slideshow-hosting'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('image-slideshow-hosting');
+    expect(app.titleInput).toEqual('image-slideshow-hosting');
   });
 
   it('should render title', () => {

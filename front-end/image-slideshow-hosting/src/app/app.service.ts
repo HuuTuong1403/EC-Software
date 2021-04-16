@@ -9,14 +9,8 @@ import { Observable } from 'rxjs';
 export class AppService {
 
   constructor(private httpClient: HttpClient) { }
-  sendImage(Image: FormData){
-    return this.httpClient.post('http://localhost:3000/sendImage', Image);
-  }
 
-  upLoadImage(vals:any): Observable<any>{
-    let data = vals;
-    return this.httpClient.post(
-      'https://res.cloudinary.com/university-of-education-technology/image/upload', data
-    )
+  sendImage(Image: FormData): Observable<Response>{
+    return this.httpClient.post<any>('http://localhost:3000/image-upload', Image);
   }
 }
