@@ -52,11 +52,23 @@ label{
 }
 
 .button-below{
-  text-align: center;
   margin-top: 20px;
+  margin-left: 20px;
 }
 
 .image-list{
-  margin-top: 20px;
+  margin-top: 50px;
   text-align: center;
+  width: 70%;
+}
+.list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar{
+  margin-top: 20px;
+  visibility: hidden;
+  width: 50%;
 }

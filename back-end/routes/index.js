@@ -31,7 +31,7 @@ app.get("/", (request, response) => {
 
 const storage = multer({dest:'public/'});
 // image upload API
-app.post("/image-upload",storage.single('image') ,(request, response) => {
+app.post("/image-upload", storage.single('image') ,(request, response) => {
     // upload image here
     cloudinary.uploader.upload(request.file.path, {folder: 'single'})
     .then((result) => {
@@ -46,5 +46,11 @@ app.post("/image-upload",storage.single('image') ,(request, response) => {
       });
     });
 });
+
+app.get("/getImage", async(request, response) => {
+  const {resources} = await cloudinary.search.expression('folder: single').sort_by('public_id', 'desc').max_results(30).execute();
+  const url = resources.map(file => file.url);
+  response.send(url);
+})
 
 module.exports = app;
